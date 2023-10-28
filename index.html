@@ -12,20 +12,20 @@
       <form class="calc-form">
         <ul class="inputs-wrapper">
           <li class="input-block">
-            <label for="name">Сума Кредиту (грн):</label>
-            <input required class="input" type="number" id="sum" name="loan_sum" min="1000" max="50000" value="1000">
+            <label for="sum">Сума Кредиту (грн):</label>
+            <input required class="input" type="number" id="sum" name="sum" min="1000" step="100" max="50000" value="1000">
             <div class="validation" id="sum-validation"></div>
             <div class="range-input-wrapper">
-              <input class="input-range" type="range" id="rangesum" name="loan_sum" value="1000" step="100" min="1000" max="50000">
+              <input class="input-range" type="range" id="rangesum" value="1000" step="100" min="1000" max="50000">
               <div class="range-value rangevalue1">1000</div>
             </div>
           </li>
           <li class="input-block">
-            <label for="mail">Період Погашення (днів):</label>
-            <input required class="input" type="number" id="daysPeriod" name="days_period" min="7" max="60" value="7">
+            <label for="daysPeriod">Період Погашення (днів):</label>
+            <input required class="input" type="number" id="daysPeriod" name="daysPeriod" step="1" min="7" max="60" value="7">
             <div class="validation" id="daysPeriod-validation"></div>
             <div class="range-input-wrapper">
-              <input class="input-range" type="range" id="rangeDaysPeriod" name="days_period_range" value="7" step="1" min="7" max="60">
+              <input class="input-range" type="range" id="rangeDaysPeriod" value="7" step="1" min="7" max="60">
               <div class="range-value rangevalue2">7</div>
             </div>
           </li>

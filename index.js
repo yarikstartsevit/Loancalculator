@@ -20,8 +20,6 @@ const submitButton = document.querySelector("#submitButton");
 const ratePercentage = 2.2;
 
 
-
-
 function submitForm() {
   calculateDayRepayment();
 }
@@ -31,13 +29,13 @@ function submitForm() {
 function calculateDayRepayment() {
   // DR = (LA + (LA * (IR / 100) * RP)) / RP - formula
   const calculatedDailyRepayment = (Number(loanSum.textContent) + (Number(loanSum.textContent) * (ratePercentage / 100) * Number(repaymentDays.textContent))) / Number(repaymentDays.textContent);
-  dayRepaymentCost.textContent = Math.round(calculatedDailyRepayment);
+  dayRepaymentCost.textContent = calculatedDailyRepayment.toFixed(2);
   calculateFullRepayment();
 }
 
 function calculateFullRepayment() {
   const calculatedFullRepayment = Number(repaymentDays.textContent) * Number(dayRepaymentCost.textContent);
-  fullRepayment.textContent = Math.round(calculatedFullRepayment);
+  fullRepayment.textContent = calculatedFullRepayment.toFixed(2);
 }
 
 function performValidation(event, el = null) {
@@ -46,11 +44,10 @@ function performValidation(event, el = null) {
   const validationMessageDiv = document.querySelector(divId);
   if(message) {
     if(el) el.classList.add('invalid');
-    submitButton.disabled = true;
   } else {
     if(el) el.classList.remove('invalid');
-    submitButton.disabled = false;
   }
+  submitButton.disabled = sumTextInput.classList.contains('invalid') || daysRepayment.classList.contains('invalid');
   if(el && validationMessageDiv) validationMessageDiv.textContent = message;
 }
 
